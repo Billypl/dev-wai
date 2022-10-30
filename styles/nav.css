@@ -1,0 +1,70 @@
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(26, 24, 24, 0.8);
+  height: 92px;
+}
+
+nav > h1 {
+  font-family: "Staatliches", cursive;
+  font-size: 3.5rem;
+  cursor: pointer;
+}
+
+.menu {
+  display: flex;
+  min-width: 700px;
+  font-family: "Source Sans Pro", sans-serif;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+}
+
+.menu {
+  height: 100%;
+  list-style: none;
+}
+
+.menu a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  transition: all 0.3s;
+  padding: 0 18px;
+}
+
+.menu a:hover {
+  color: rgb(122, 122, 122);
+}
+
+.submenu ul {
+  list-style: none;
+  opacity: 0;
+}
+
+.submenu a:focus + ul {
+  opacity: 1;
+}
+
+.submenu li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(29, 29, 29);
+}
+
+.submenu li a {
+  padding: 18px;
+}
+
+.beer-bg {
+  width: 100%;
+  height: 400px;
+  position: absolute;
+  top: -10%;
+  left: 0;
+  z-index: -1;
+  background-image: url("/Resources/beer-foamed-bg.jpg");
+  background-size: contain;
+}
