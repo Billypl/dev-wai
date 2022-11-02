@@ -18,9 +18,6 @@ nav > h1 {
   font-family: "Source Sans Pro", sans-serif;
   text-transform: uppercase;
   font-size: 1.1rem;
-}
-
-.menu {
   height: 100%;
   list-style: none;
 }
@@ -35,16 +32,23 @@ nav > h1 {
 }
 
 .menu a:hover {
-  color: rgb(122, 122, 122);
+  color: rgb(167, 167, 167);
 }
 
 .submenu ul {
   list-style: none;
-  display: none;
-}
-
-.submenu a:focus + ul {
+  visibility: hidden;
   display: block;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+  margin-top: 100px;
+}
+.submenu a:focus + ul,
+.submenu a:hover + ul,
+.submenu ul:hover {
+  opacity: 1;
+  visibility: visible;
+  margin-top: 0;
 }
 
 .submenu li {
@@ -58,14 +62,56 @@ nav > h1 {
   padding: 18px;
 }
 
-nav::after {
+nav::before {
   content: "";
   width: 100%;
   height: 400px;
   position: absolute;
   top: -10%;
   left: 0;
-  z-index: -1;
+  z-index: -2;
   background-image: url("/Resources/beer-foamed-bg.jpg");
   background-size: contain;
+}
+
+@media (max-device-width: 1000px) {
+  nav::after {
+    content: "";
+    background-color: rgb(225, 152, 25);
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  .menu {
+    width: 100%;
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -25%);
+  }
+  .menu > li > a {
+    min-height: 100px;
+    padding: 0;
+  }
+  .submenu ul,
+  .submenu a {
+    width: 100%;
+  }
+
+  nav::before {
+    background-size: cover;
+  }
+
+  .submenu {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+  }
 }
