@@ -7,9 +7,17 @@ body {
   background-color: rgb(36, 36, 36);
   color: white;
   width: 100%;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 a {
   text-decoration: none;
   color: white;
+}
+
+::-webkit-scrollbar {
+  background-color: rgb(38, 38, 38);
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgb(69, 69, 69);
 }

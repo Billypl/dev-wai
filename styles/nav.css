@@ -1,4 +1,7 @@
 nav {
+  height: 315px;
+}
+.navbar {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -6,7 +9,7 @@ nav {
   height: 92px;
 }
 
-nav > h1 {
+.navbar h1 {
   font-family: "Staatliches", cursive;
   font-size: 3.5rem;
   cursor: pointer;

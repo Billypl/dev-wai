@@ -9,42 +9,68 @@
 
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="/styles/nav.css">
+    <link rel="stylesheet" href="/styles/cards.css">
+
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300&family=Staatliches&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dosis:wght@300;500;700&family=Source+Sans+Pro:wght@200;300&family=Staatliches&display=swap"
         rel="stylesheet">
-
 </head>
 
 <body>
     <nav>
-        <h1><a>Beer</a></h1>
-        <ul class="menu">
-            <li>
-                <a href="#">strona główna</a>
-            </li>
-            <li>
-                <a href="#">historia</a>
-            </li>
-            <li class="submenu">
-                <a href="#">rodzaje piw ↓</a>
-                <ul>
-                    <li><a href="#">Bezalkoholowe</a></li>
-                    <li><a href="#">Normalne</a></li>
-                    <li><a href="#">Kraftowe</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">galeria</a>
-            </li>
-            <li>
-                <a href="#">wypełnij ankiete</a>
-            </li>
-        </ul>
+        <div class="navbar">
+            <h1><a href="#">Beer</a></h1>
+            <ul class="menu">
+                <li>
+                    <a href="#">strona główna</a>
+                </li>
+                <li>
+                    <a href="#">historia</a>
+                </li>
+                <li class="submenu">
+                    <a href="#">rodzaje piw ↓</a>
+                    <ul>
+                        <li><a href="#">Bezalkoholowe</a></li>
+                        <li><a href="#">Normalne</a></li>
+                        <li><a href="#">Kraftowe</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">galeria</a>
+                </li>
+                <li>
+                    <a href="#">wypełnij ankiete</a>
+                </li>
+            </ul>
+        </div>
     </nav>
+    <div id="interactive-beer">
 
-
+    </div>
+    <section id="beer-showcase">
+        <h2>Top 3</h2>
+        <div id="card-wrapper">
+            <div class="card">
+                <img src="/Resources/brands/heineken.png">
+                <div class="beer-desc">
+                    <h4>Piwa Bezalkoholowe</h4>
+                    <!-- <p>Cena - 3,60zł</p>
+                    <p>Ocena - 6/10</p> -->
+                </div>
+            </div>
+            <div class="card">
+                <img src="/Resources/brands/żubr.png">
+                <h4>Piwa Standardowe</h4>
+            </div>
+            <div class="card">
+                <img src="/Resources/brands/perla-export.png">
+                <h4>Piwa Kraftowe</h4>
+            </div>
+        </div>
+    </section>
 </body>
 
 </html>
