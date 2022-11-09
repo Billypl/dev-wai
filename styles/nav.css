@@ -13,6 +13,7 @@ nav {
   font-family: "Staatliches", cursive;
   font-size: 3.5rem;
   cursor: pointer;
+  z-index: 2;
 }
 
 .menu {
@@ -23,6 +24,7 @@ nav {
   font-size: 1.1rem;
   height: 100%;
   list-style: none;
+  z-index: 2;
 }
 
 .menu a {
@@ -49,6 +51,7 @@ nav {
 .submenu a:focus + ul,
 .submenu a:hover + ul,
 .submenu ul:hover {
+  display: block;
   opacity: 1;
   visibility: visible;
   margin-top: 0;
@@ -77,44 +80,27 @@ nav::before {
   background-size: contain;
 }
 
-@media (max-device-width: 1000px) {
-  nav::after {
-    content: "";
-    background-color: rgb(225, 152, 25);
-    background-size: cover;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-  }
-
-  .menu {
-    width: 100%;
-    display: flex;
-    position: fixed;
-    flex-direction: column;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -25%);
-  }
-  .menu > li > a {
-    min-height: 100px;
-    padding: 0;
-  }
-  .submenu ul,
-  .submenu a {
-    width: 100%;
-  }
-
+@media (max-width: 1000px) {
   nav::before {
     background-size: cover;
   }
-
-  .submenu {
-    display: flex;
-    align-items: center;
-    flex-flow: column;
+  nav {
+    height: auto;
+    width: 100%;
+  }
+  .menu {
+    height: auto;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .navbar {
+    height: auto;
+    flex-direction: column;
+  }
+  .submenu ul {
+    display: none;
+  }
+  .menu a {
+    height: 50px;
   }
 }

@@ -8,10 +8,12 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  margin: 150px 0;
+  flex-wrap: wrap;
+  margin: 100px 0;
 }
 
 .card {
+  margin: 50px 50px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -24,6 +26,7 @@
   max-height: 100%;
   transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
+
 .card {
   background: linear-gradient(
     -45deg,
