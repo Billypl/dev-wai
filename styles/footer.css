@@ -1,0 +1,37 @@
+footer {
+  min-height: 300px;
+  background-color: var(--beer-color);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  color: black;
+}
+.footer-text {
+  height: 150px;
+  max-width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 50px;
+}
+.custom-shape-divider-top-1668072845 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-top-1668072845 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 76px;
+}
+
+.custom-shape-divider-top-1668072845 .shape-fill {
+  fill: var(--main-color);
+}

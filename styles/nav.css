@@ -61,7 +61,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(29, 29, 29);
+  background-color: var(--menu-color);
 }
 
 .submenu li a {

@@ -1,18 +1,26 @@
+:root {
+  --main-color: rgb(36, 36, 36);
+  --menu-color: rgb(29, 29, 29);
+  --text-color: rgb(250, 250, 250);
+  --beer-color: #e2ad30;
+}
+
 * {
   padding: 0;
   margin: 0;
 }
 
 body {
-  background-color: rgb(36, 36, 36);
-  color: white;
+  background-color: var(--main-color);
+  color: var(--text-color);
+
   width: 100%;
   font-family: "Source Sans Pro", sans-serif;
 }
 
 a {
   text-decoration: none;
-  color: white;
+  color: var(--text-color);
 }
 
 ::-webkit-scrollbar {
