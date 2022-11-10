@@ -1,5 +1,5 @@
 nav {
-  height: 315px;
+  height: 335px;
 }
 .navbar {
   display: flex;
@@ -87,6 +87,7 @@ nav::before {
   nav {
     height: auto;
     width: 100%;
+    margin-bottom: 100px;
   }
   .menu {
     height: auto;
