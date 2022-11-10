@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moje hobby</title>
+
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="/styles/nav.css">
+    <link rel="stylesheet" href="/styles/cards.css">
+    <link rel="stylesheet" href="/styles/footer.css">
+    <link rel="stylesheet" href="/styles/form.css">
+
+    <script src="scripts/form.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dosis:wght@300;500;700&family=Source+Sans+Pro:wght@200;300&family=Staatliches&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav>
+        <div class="navbar">
+            <header>
+                <h1><a href="index.html">Beer</a></h1>
+            </header>
+            <ul class="menu">
+                <li>
+                    <a href="index.html">strona główna</a>
+                </li>
+                <li>
+                    <a href="#">historia</a>
+                </li>
+                <li class="submenu">
+                    <a href="#">rodzaje piw ↓</a>
+                    <ul>
+                        <li><a href="#">Bezalkoholowe</a></li>
+                        <li><a href="#">Normalne</a></li>
+                        <li><a href="#">Kraftowe</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="galery.html">galeria</a>
+                </li>
+                <li>
+                    <a href=" #">wypełnij ankiete</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <section>
+        <h2>Ankieta</h2>
+        <form action="recive.php" method="post">
+            <div class="questions">
+                <div id="personal" class="category">
+                    <div class="pair">
+                        <label for="name">Imię:</label><br>
+                        <input type="text" id="name" name="name"><br>
+                    </div>
+                    <div class="pair">
+                        <label for="surname">Nazwisko:</label><br>
+                        <input type="text" id="surname" name="surname"><br>
+                    </div>
+                    <div class="pair">
+                        <label for="surname">Data urodzenia:</label><br>
+                        <input type="datetime-local">
+                    </div>
+                </div>
+                <div id="beer-types" class="category">
+                    <div>Ulubiony typ piwa:</div>
+                    <div class="radio">
+                        <input name="beer-type" id="alcohol-free" value="option-1" type="radio">
+                        <label for="alcohol-free">Bezalkoholowe</label>
+                    </div>
+                    <div class="radio">
+                        <input name="beer-type" id="standard" value="option-2" type="radio">
+                        <label for="standard">Standardowe</label>
+                    </div>
+                    <div class="radio">
+                        <input name="beer-type" id="flavored" value="option-3" type="radio">
+                        <label for="flavored">Smakowe</label>
+                    </div>
+                    <div class="radio">
+                        <input name="beer-type" id="craft" value="option-4" type="radio">
+                        <label for="craft">Kraftowe</label>
+                    </div>
+                </div>
+                <div id="beer-brands" class="category">
+                    <div class="sub-category">
+                        <label for="beer-brand">Ulubiona marka:</label>
+                        <select id="beer-brand" name="beer-brand">
+                            <option value="specjal">Specjal</option>
+                            <option value="okocim">Okocim</option>
+                            <option value="warka">Warka</option>
+                            <option value="cumowe">Cumowe</option>
+                            <option value="czerwony-lager">Czerwony Lager</option>
+                            <option value="capitan-jack">Capitan Jack</option>
+                            <option value="dębowe-mocne">Dębowe Mocne</option>
+                            <option value="dzik">Dzik</option>
+                            <option value="EB">EB</option>
+                            <option value="harnaś">Harnaś</option>
+                            <option value="heweliusz">Heweliusz</option>
+                            <option value="kasztelan">Kasztelan</option>
+                            <option value="amber">Amber</option>
+                            <option value="łomoża">Łomoża</option>
+                            <option value="perła">Perła</option>
+                            <option value="tatra">Tatra</option>
+                            <option value="tyskie">Tyskie</option>
+                            <option value="wojak">Wojak</option>
+                            <option value="żywiec">Żywiec</option>
+                            <option value="żubr">Żubr</option>
+                        </select>
+                    </div>
+                    <div class="sub-category">
+                        <label for="monthly-beer">Jak często pijesz piwo w miesiącu:</label>
+                        <span>
+                            0<input type="range" id="monthly-beer" min="0" max="31" step="1" value="31"
+                                oninput="updateNumber()">
+                            <span id="cur-val">31</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="category">
+                    <div>Gdzie najbardziej lubisz pić piwo?</div>
+                    <div class="checkbox">
+                        <input name="beer-type" id="party" value="option-1" type="checkbox">
+                        <label for="party">Na imprezie</label>
+                    </div>
+                    <div class="checkbox">
+                        <input name="beer-type" id="flavored" value="option-2" type="checkbox">
+                        <label for="flavored">W plenerze</label>
+                    </div>
+                    <div class="checkbox">
+                        <input name="beer-type" id="flavored" value="option-3" type="checkbox">
+                        <label for="flavored">W pubie</label>
+                    </div>
+                    <div class="checkbox">
+                        <input name="beer-type" id="flavored" value="option-4" type="checkbox">
+                        <label for="flavored">Przed komputerem</label>
+                    </div>
+                </div>
+            </div>
+            <div id="formal-buttons">
+                <input type="submit"><br>
+                <input type="reset"><br>
+            </div>
+        </form>
+    </section>
+    <footer>
+        <div class="custom-shape-divider-top-1668072845">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path d="M892.25 114.72L0 0 0 120 1200 120 1200 0 892.25 114.72z" class="shape-fill"></path>
+            </svg>
+        </div>
+        <div class="footer-text">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium porro molestiae debitis ullam
+            deleniti
+            ratione vero voluptatum illo nihil cupiditate?
+        </div>
+        <div class="footer-text">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium porro molestiae debitis ullam
+            deleniti
+            ratione vero voluptatum illo nihil cupiditate?
+        </div>
+    </footer>
+</body>
+
+</html>

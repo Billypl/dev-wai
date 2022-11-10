@@ -23,6 +23,10 @@ a {
   color: var(--text-color);
 }
 
+h2 {
+  font-size: 5rem;
+}
+
 ::-webkit-scrollbar {
   background-color: rgb(38, 38, 38);
 }
