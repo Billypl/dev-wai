@@ -27,6 +27,13 @@ nav {
   z-index: 2;
 }
 
+.menu > li:last-child {
+  margin-left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .menu a {
   display: flex;
   align-items: center;
@@ -61,7 +68,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--menu-color);
+  background-color: var(--submenu-color);
 }
 
 .submenu li a {
@@ -76,7 +83,7 @@ nav::before {
   top: -10%;
   left: 0;
   z-index: -2;
-  background-image: url("/Resources/beer-foamed-bg.jpg");
+  background-image: url("../Resources/beer-foamed-bg.jpg");
   background-size: contain;
 }
 

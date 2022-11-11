@@ -1,0 +1,15 @@
+.slides {
+  display: flex;
+  justify-content: center;
+  margin: 100px 0;
+}
+
+.harmonica {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 100px 0;
+}
+#tabs {
+  width: 50%;
+}

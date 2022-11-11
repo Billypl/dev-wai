@@ -47,7 +47,7 @@
                     <a href="galery.html">galeria</a>
                 </li>
                 <li>
-                    <a href=" #">wypełnij ankiete</a>
+                    <a href="form.html" id="active-nav">wypełnij ankiete</a>
                 </li>
             </ul>
         </div>
@@ -66,26 +66,26 @@
                         <input type="text" id="surname" name="surname"><br>
                     </div>
                     <div class="pair">
-                        <label for="surname">Data urodzenia:</label><br>
-                        <input type="datetime-local">
+                        <label for="birthdate">Data urodzenia:</label><br>
+                        <input type="date" id="birthdate" name="birthdate">
                     </div>
                 </div>
-                <div id="beer-types" class="category">
+                <div id=" beer-types" class="category">
                     <div>Ulubiony typ piwa:</div>
                     <div class="radio">
-                        <input name="beer-type" id="alcohol-free" value="option-1" type="radio">
+                        <input name="beer-type" id="alcohol-free" value="alcohol-free" type="radio">
                         <label for="alcohol-free">Bezalkoholowe</label>
                     </div>
                     <div class="radio">
-                        <input name="beer-type" id="standard" value="option-2" type="radio">
+                        <input name="beer-type" id="standard" value="standard" type="radio">
                         <label for="standard">Standardowe</label>
                     </div>
                     <div class="radio">
-                        <input name="beer-type" id="flavored" value="option-3" type="radio">
+                        <input name="beer-type" id="flavored" value="flavored" type="radio">
                         <label for="flavored">Smakowe</label>
                     </div>
                     <div class="radio">
-                        <input name="beer-type" id="craft" value="option-4" type="radio">
+                        <input name="beer-type" id="craft" value="craft" type="radio">
                         <label for="craft">Kraftowe</label>
                     </div>
                 </div>
@@ -118,8 +118,8 @@
                     <div class="sub-category">
                         <label for="monthly-beer">Jak często pijesz piwo w miesiącu:</label>
                         <span>
-                            0<input type="range" id="monthly-beer" min="0" max="31" step="1" value="31"
-                                oninput="updateNumber()">
+                            0<input type="range" id="monthly-beer" name="monthly-beer" min="0" max="31" step="1"
+                                value="31" oninput="updateNumber()">
                             <span id="cur-val">31</span>
                         </span>
                     </div>
@@ -127,20 +127,20 @@
                 <div class="category">
                     <div>Gdzie najbardziej lubisz pić piwo?</div>
                     <div class="checkbox">
-                        <input name="beer-type" id="party" value="option-1" type="checkbox">
+                        <input name="drinking-type" id="party" value="party" type="checkbox">
                         <label for="party">Na imprezie</label>
                     </div>
                     <div class="checkbox">
-                        <input name="beer-type" id="flavored" value="option-2" type="checkbox">
-                        <label for="flavored">W plenerze</label>
+                        <input name="drinking-type" id="outside" value="outside" type="checkbox">
+                        <label for="outside">W plenerze</label>
                     </div>
                     <div class="checkbox">
-                        <input name="beer-type" id="flavored" value="option-3" type="checkbox">
-                        <label for="flavored">W pubie</label>
+                        <input name="drinking-type" id="pub" value="pub" type="checkbox">
+                        <label for="pub">W pubie</label>
                     </div>
                     <div class="checkbox">
-                        <input name="beer-type" id="flavored" value="option-4" type="checkbox">
-                        <label for="flavored">Przed komputerem</label>
+                        <input name="drinking-type" id="alone" value="alone" type="checkbox">
+                        <label for="alone">Przed komputerem</label>
                     </div>
                 </div>
             </div>
