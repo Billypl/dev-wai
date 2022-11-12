@@ -40,6 +40,10 @@ h2 {
   font-size: 5rem;
 }
 
+.no-js {
+  display: none;
+}
+
 ::-webkit-scrollbar {
   background-color: rgb(38, 38, 38);
 }

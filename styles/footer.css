@@ -6,8 +6,11 @@ footer {
   justify-content: center;
   align-items: flex-end;
   color: black;
+  position: relative;
+  overflow: hidden;
 }
 .footer-text {
+  z-index: 2;
   height: 150px;
   max-width: 400px;
   display: flex;
@@ -16,10 +19,13 @@ footer {
 }
 .footer-text > div {
   width: 50%;
+  display: flex;
+  flex-direction: column;
   text-align: center;
 }
 
 .custom-shape-divider-top-1668072845 {
+  z-index: 10;
   position: absolute;
   top: 0;
   left: 0;
@@ -38,4 +44,35 @@ footer {
 
 .custom-shape-divider-top-1668072845 .shape-fill {
   fill: var(--main-color);
+}
+
+.bubble {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--beer-color);
+  filter: opacity(80%) brightness(70%);
+  z-index: 1;
+
+  position: absolute;
+  margin-top: 300px;
+  animation: flowUpwards linear infinite, flowSideways ease-in-out 2s infinite;
+}
+
+@keyframes flowUpwards {
+  0% {
+    margin-top: 300px;
+  }
+  100% {
+    margin-top: -300px;
+  }
+}
+
+@keyframes flowSideways {
+  0% {
+    transform: translateX(-20px);
+  }
+  100% {
+    transform: translateX(20px);
+  }
 }

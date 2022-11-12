@@ -1,4 +1,4 @@
-const clock = $("#clock");
+const clock = document.getElementById("clock");
 
 const startDate = getStartDate();
 startClock();
@@ -32,5 +32,5 @@ function refreshClock() {
     let seconds = String(dTime.getSeconds()).padStart(2, '0');
 
     let time = `${hours} : ${minutes} : ${seconds}`;
-    clock.text(time);
+    clock.innerText = time;
 }
