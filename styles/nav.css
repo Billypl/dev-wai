@@ -29,7 +29,6 @@ nav {
 
 .menu > li:last-child {
   margin-left: 10px;
-  display: flex;
   justify-content: center;
   align-items: center;
 }
