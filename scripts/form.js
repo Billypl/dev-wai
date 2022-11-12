@@ -1,15 +1,16 @@
 const formSlider = document.getElementById("monthly-beer");
 const formSliderOutput = document.getElementById("cur-val");
-formSliderOutput.innerHTML = formSlider.value;
+formSliderOutput.innerText = formSlider.value;
 
 formSlider.oninput = function () {
-    formSliderOutput.innerHTML = this.value;
+    formSliderOutput.innerText = this.value;
 }
 
 
 const inputs = $(".questions input:not([type='radio'], [type='checkbox']), .questions select").toArray();
 const radios = $(".questions input[type='radio']").toArray();
 const checkboxes = $(".questions input[type='checkbox']").toArray();
+const reset = $("input[type='reset']");
 
 attachEventListeners();
 fillInputsAtTheStart();
@@ -25,6 +26,7 @@ function attachEventListeners() {
     for (checkbox of checkboxes) {
         checkbox.addEventListener("input", saveCheckboxesToSession);
     }
+    reset.click(() => sessionStorage.clear());
 }
 
 function saveToSession() {
@@ -67,7 +69,7 @@ function fillRadioButtons() {
 function fillCheckboxes() {
     for (checkbox of checkboxes) {
         let arr = JSON.parse(sessionStorage.getItem(checkbox.name));
-        if (arr.includes(checkbox.value))
+        if (arr && arr.includes(checkbox.value))
             checkbox.checked = true;
     }
 }

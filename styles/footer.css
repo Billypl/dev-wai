@@ -12,9 +12,13 @@ footer {
   max-width: 400px;
   display: flex;
   justify-content: center;
-  align-items: center;
   margin: 30px 50px;
 }
+.footer-text > div {
+  width: 50%;
+  text-align: center;
+}
+
 .custom-shape-divider-top-1668072845 {
   position: absolute;
   top: 0;
