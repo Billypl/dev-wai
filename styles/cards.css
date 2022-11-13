@@ -42,7 +42,7 @@
     rgba(201, 107, 12, 1) 35%,
     rgb(224, 220, 10) 100%
   );
-  box-shadow: 14px 21px 56px -10px rgb(6, 6, 6);
+  box-shadow: 14px 21px 56px -10px var(--card-shadow-color);
   color: black;
   border-radius: 3%;
   width: 300px;

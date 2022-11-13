@@ -1,0 +1,24 @@
+:root {
+  --main-color: #242424;
+  --menu-color-bg: rgba(26, 24, 24, 0.8);
+  --submenu-color: #1d1d1d;
+  --menu-hover-color: #a7a7a7;
+  --menu-text-color: #e1e4e4;
+
+  --text-color: #fafafa;
+  --beer-color: #e2ad30;
+
+  --card-shadow-color: #060606;
+
+  --jq-content-text-color: #f7f6f6;
+  --jq-content-bg: #333333;
+  --jq-vidget-border: #888888;
+
+  --jq-header-bg: #494949;
+  --jq-header-border: #878787;
+
+  --jq-button-bg: #e9a600;
+  --jq-button-clickable-bg: #444444;
+  --jq-button-border: #888888;
+  --jq-button-text: #303030;
+}

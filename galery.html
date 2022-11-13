@@ -5,19 +5,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moje hobby</title>
+    <title>Piwo</title>
+    <link rel="shortcut icon" href="Resources/favico.png">
 
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/nav.css">
     <link rel="stylesheet" href="styles/galery.css">
     <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/dark-mode.css" id="theme-mode">
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="scripts/timeCounter.js" defer></script>
     <script src="scripts/no-js.js" defer></script>
     <script src="scripts/footer.js" defer></script>
+    <script src="scripts/dark-mode.js" defer></script>
 
-
+    <script src="https://kit.fontawesome.com/0dcda202b3.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -51,6 +54,9 @@
                 </li>
                 <li>
                     <a href="form.html">wypełnij ankiete</a>
+                </li>
+                <li class="no-js" id="dark-mode">
+                    <i class="fa-solid fa-circle-half-stroke"></i>
                 </li>
             </ul>
         </div>
@@ -94,14 +100,22 @@
             </svg>
         </div>
         <div class="footer-text">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium porro molestiae debitis ullam
-            deleniti
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium porro molestiae debitis ullam deleniti
             ratione vero voluptatum illo nihil cupiditate?
         </div>
+
         <div class="footer-text">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium porro molestiae debitis ullam
-            deleniti
-            ratione vero voluptatum illo nihil cupiditate?
+            <div>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium porro molestiae debitis ullam
+                deleniti
+                ratione vero voluptatum illo nihil cupiditate?
+            </div>
+            <div class="no-js">
+                Czas spędzony na stronie:
+                <div id="clock">
+                    00:00:00
+                </div>
+            </div>
         </div>
     </footer>
 </body>

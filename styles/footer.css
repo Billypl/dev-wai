@@ -8,6 +8,7 @@ footer {
   color: black;
   position: relative;
   overflow: hidden;
+  transition: left 1s linear;
 }
 .footer-text {
   z-index: 2;
@@ -48,6 +49,7 @@ footer {
 .bubble {
   width: 10px;
   height: 10px;
+  transition: left 1s ease;
   border-radius: 50%;
   background-color: var(--beer-color);
   filter: opacity(80%) brightness(70%);
