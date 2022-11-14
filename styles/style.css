@@ -29,7 +29,7 @@ h2 {
 }
 
 .no-js {
-  display: none;
+  display: none !important;
 }
 
 ::-webkit-scrollbar {
