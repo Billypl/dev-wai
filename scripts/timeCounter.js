@@ -27,7 +27,7 @@ function refreshClock() {
     let now = new Date;
     let dTime = new Date(now - startDate);
 
-    let hours = String(dTime.getHours() - 1).padStart(2, '0');
+    let hours = String(dTime.getHours() - 1 + (dTime.getDate() - 1) * 24).padStart(2, '0');
     let minutes = String(dTime.getMinutes()).padStart(2, '0');
     let seconds = String(dTime.getSeconds()).padStart(2, '0');
 

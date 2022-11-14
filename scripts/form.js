@@ -1,6 +1,6 @@
 const formSlider = document.getElementById("monthly-beer");
 const formSliderOutput = document.getElementById("cur-val");
-formSliderOutput.innerText = formSlider.value;
+formSliderOutput.innerText = sessionStorage.getItem("monthly-beer") || 31;
 
 formSlider.oninput = function () {
     formSliderOutput.innerText = this.value;

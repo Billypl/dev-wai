@@ -904,7 +904,7 @@ body .ui-tooltip {
   color: var(--jq-content-text-color);
 }
 .ui-widget-content a {
-  color: #f7f6f6;
+  color: var(--jq-a-text);
 }
 .ui-widget-header {
   border: 1px solid var(--jq-header-border);

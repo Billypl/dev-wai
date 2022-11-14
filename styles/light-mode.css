@@ -10,6 +10,7 @@
 
   --card-shadow-color: #949494;
 
+  --jq-a-text: var(--beer-color);
   --jq-content-text-color: #000000;
   --jq-content-bg: #b4b4b4;
   --jq-vidget-border: #888888;

@@ -10,6 +10,10 @@
   align-items: center;
   margin: 100px 0;
 }
+.harmonica p {
+  margin: 10px 0;
+}
+
 #tabs {
   width: 50%;
 }
