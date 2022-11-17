@@ -5,18 +5,56 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moje hobby</title>
+    <title>Piwo</title>
+    <link rel="shortcut icon" href="Resources/favico.png">
 
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="/styles/nav.css">
-    <link rel="stylesheet" href="/styles/cards.css">
-    <link rel="stylesheet" href="/styles/footer.css">
+    <link rel="stylesheet" href="styles/nav.css">
+    <link rel="stylesheet" href="styles/cards.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/main-sections.css">
+    <link rel="stylesheet" href="styles/dark-mode.css" id="theme-mode">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+    <script src="scripts/timeCounter.js" defer></script>
+    <script src="scripts/no-js.js" defer></script>
+    <script src="scripts/footer.js" defer></script>
+    <script src="scripts/dark-mode.js" defer></script>
 
 
+    <!-- plugin -->
+
+    <link rel="stylesheet" href="external/styles/ResponsiveSlides/slides.css">
+    <script src="external/scripts/ResponsiveSlides/responsiveslides.min.js"></script>
+    <script>
+        $(function () {
+            $(".rslides").responsiveSlides();
+        });
+    </script>
+
+    <!-- UI -->
+
+    <link rel="stylesheet" href="external/styles/jquery-ui-1.13.2.custom/jquery-ui.css">
+    <script src="external/scripts/jquery-ui-1.13.2.custom/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#tabs").tabs();
+        });
+    </script>
+    <script>
+        $(function () {
+            $(document).tooltip();
+        });
+    </script>
+
+    <!-- koniec -->
+
+    <script src="https://kit.fontawesome.com/0dcda202b3.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Dosis:wght@300;500;700&family=Source+Sans+Pro:wght@200;300&family=Staatliches&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Dosis:wght@300;500;700&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,400&family=Staatliches&display=swap"
         rel="stylesheet">
 </head>
 
@@ -28,7 +66,7 @@
             </header>
             <ul class="menu">
                 <li>
-                    <a href="index.html">strona główna</a>
+                    <a href="index.html" id="active-nav">strona główna</a>
                 </li>
                 <li>
                     <a href="#">historia</a>
@@ -36,9 +74,9 @@
                 <li class="submenu">
                     <a href="#">rodzaje piw ↓</a>
                     <ul>
-                        <li><a href="#">Bezalkoholowe</a></li>
-                        <li><a href="#">Normalne</a></li>
-                        <li><a href="#">Kraftowe</a></li>
+                        <li><a href="index.html#tabs">Bezalkoholowe</a></li>
+                        <li><a href="index.html#tabs">Normalne</a></li>
+                        <li><a href="index.html#tabs">Kraftowe</a></li>
                     </ul>
                 </li>
                 <li>
@@ -47,33 +85,91 @@
                 <li>
                     <a href="form.html">wypełnij ankiete</a>
                 </li>
+                <li class="no-js" id="dark-mode">
+                    <i class="fa-solid fa-circle-half-stroke"></i>
+                </li>
             </ul>
         </div>
     </nav>
     <div id="interactive-beer">
 
     </div>
+
     <section id="beer-showcase">
         <h2>Top 3</h2>
         <div id="card-wrapper">
             <div class="card">
-                <img src="/Resources/brands/heineken.png">
+                <img src="Resources/brands/heineken.png" alt="heineken">
                 <div class="beer-desc">
                     <h4>Piwa Bezalkoholowe</h4>
-                    <!-- <p>Cena - 3,60zł</p>
-                    <p>Ocena - 6/10</p> -->
                 </div>
             </div>
             <div class="card">
-                <img src="/Resources/brands/żubr.png">
+                <img src="Resources/brands/żubr.png" alt="żubr">
                 <h4>Piwa Standardowe</h4>
             </div>
             <div class="card">
-                <img src="/Resources/brands/perla-export.png">
+                <img src="Resources/brands/kraftowe3.png" alt="kraftowe">
                 <h4>Piwa Kraftowe</h4>
             </div>
         </div>
     </section>
+
+    <section class="slides no-js">
+        <ul class="rslides">
+            <li><img src="Resources/brands/heineken.png" alt=""></li>
+            <li><img src="Resources/brands/perla-export.png" alt=""></li>
+            <li><img src="Resources/brands/żubr.png" alt=""></li>
+            <li><img src="Resources/brands/kraftowe.png" alt=""></li>
+            <li><img src="Resources/brands/kraftowe2.png" alt=""></li>
+            <li><img src="Resources/brands/kraftowe3.png" alt=""></li>
+        </ul>
+    </section>
+
+    <section class="harmonica no-js">
+        <div id="tabs">
+            <ul>
+                <li><a href="#tabs-1">Bezalkoholowe</a></li>
+                <li><a href="#tabs-2">Alkoholowe</a></li>
+                <li><a href="#tabs-3">Kraftowe</a></li>
+            </ul>
+            <div id="tabs-1">
+                <p>Zgodnie z polskim prawem
+                    <a href="https://pl.wikipedia.org/wiki/Piwo_bezalkoholowe" title="definicja piwa bezalkoholowego">
+                        piwo bezalkoholowe
+                    </a>
+                    to piwo, w którym zawartość alkoholu nie przekracza 0,5%
+                    całkowitej objętości. Dla porównania: najpopularniejsze gatunki piw alkoholowych mają od 4 do 6%
+                    alkoholu.</p>
+                <p>
+                    Piwa bezalkoholowe są warzone w tradycyjny sposób, tyle że w ściśle określonym momencie fermentacja
+                    jest przerywana, przez co nie dopuszcza się do wytworzenia alkoholu. Pozwala to zachować w piwie
+                    bezalkoholowym wszystkie pozostałe związki, które występują w ich alkoholowych odpowiednikach oraz
+                    smak
+                </p>
+            </div>
+            <div id="tabs-2">
+                <p>
+                    <a href="https://pl.wikipedia.org/wiki/Piwo" title="definicja piwa alkoholowego">
+                        Piwo
+                    </a>
+                    jest napojem alkoholowym otrzymywanym w wyniku fermentacji roztworu (brzeczki) przygotowanego ze
+                    słodowanego jęczmienia lub pszenicy, wody i (zazwyczaj) chmielu. Do przygotowania roztworu
+                    (brzeczki) mogą być również używane pewne ilości niesłodowanych zbóż (np. ziarno kukurydzy lub ryż).
+                </p>
+            </div>
+            <div id="tabs-3">
+                <p>
+                    <a href="https://pl.wikipedia.org/wiki/Browar_rzemie%C5%9Blniczy" title="definicja piwa kraftowego">
+                        Piwo kraftowe
+                    </a>
+                    , a inaczej piwo rzemieślnicze to produkt wytwarzany w małych i niezależnych od kapitału
+                    korporacyjnego browarach. Cechą, która odróżnia piwo kraftowe i piwo rzemieślnicze od innych jest
+                    fakt, iż piwowar, często również właściciel, jest znany klientom końcowym z imienia i nazwiska.</p>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div class="custom-shape-divider-top-1668072845">
             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
@@ -81,15 +177,36 @@
                 <path d="M892.25 114.72L0 0 0 120 1200 120 1200 0 892.25 114.72z" class="shape-fill"></path>
             </svg>
         </div>
+
         <div class="footer-text">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium porro molestiae debitis ullam deleniti
-            ratione vero voluptatum illo nihil cupiditate?
+            <cite>"Bez wątpienia największym wynalazkiem ludzkości jest piwo. No, koło też jest ważne, ale nie pasuje do
+                pizzy..."</cite>
         </div>
-        <div class="footer-text">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium porro molestiae debitis ullam deleniti
-            ratione vero voluptatum illo nihil cupiditate?
+        <div class="footer-text no-js">
+            <a href="https://www.youtube.com/c/BrowarKopyra"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://pl.wikipedia.org/wiki/Piwo"><i class="fa-brands fa-wikipedia-w"></i></a>
+            <a href="https://www.instagram.com/explore/tags/beer"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+        <div class="footer-text no-js">
+            <div>
+                Czas od pierwszego wejścia na stronę:
+                <div id="clock">
+                    00:00:00
+                </div>
+            </div>
         </div>
     </footer>
 </body>
 
 </html>
+
+<!-- 
+
+Bez wątpienia największym wynalazkiem ludzkości jest piwo. No, koło też jest ważne, ale nie pasuje do pizzy...
+Dave Barry, pisarz amerykański uhonorowany nagrodą Pulitzera
+
+Żadne państwo tak naprawdę się nie liczy, jeżeli nie ma własnego piwa i własnych linii lotniczych. Można też mieć własna drużynę piłkarska i jakąś broń biologiczną, ale piwo to podstawa.
+Frank Zappa, amerykański muzyk rockowy i jazzowy
+
+
+ -->

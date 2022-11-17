@@ -5,20 +5,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moje hobby</title>
+    <title>Piwo</title>
+    <link rel="shortcut icon" href="Resources/favico.png">
 
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="/styles/nav.css">
-    <link rel="stylesheet" href="/styles/cards.css">
-    <link rel="stylesheet" href="/styles/footer.css">
-    <link rel="stylesheet" href="/styles/form.css">
+    <link rel="stylesheet" href="styles/nav.css">
+    <link rel="stylesheet" href="styles/cards.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/form.css">
+    <link rel="stylesheet" href="styles/dark-mode.css" id="theme-mode">
 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="scripts/no-js.js" defer></script>
     <script src="scripts/form.js" defer></script>
+    <script src="scripts/timeCounter.js" defer></script>
+    <script src="scripts/footer.js" defer></script>
+    <script src="scripts/dark-mode.js" defer></script>
 
+    <script src="https://kit.fontawesome.com/0dcda202b3.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Dosis:wght@300;500;700&family=Source+Sans+Pro:wght@200;300&family=Staatliches&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Dosis:wght@300;500;700&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,400&family=Staatliches&display=swap"
         rel="stylesheet">
 </head>
 
@@ -47,7 +55,10 @@
                     <a href="galery.html">galeria</a>
                 </li>
                 <li>
-                    <a href=" #">wypełnij ankiete</a>
+                    <a href="form.html" id="active-nav">wypełnij ankiete</a>
+                </li>
+                <li class="no-js" id="dark-mode">
+                    <i class="fa-solid fa-circle-half-stroke"></i>
                 </li>
             </ul>
         </div>
@@ -66,26 +77,26 @@
                         <input type="text" id="surname" name="surname"><br>
                     </div>
                     <div class="pair">
-                        <label for="surname">Data urodzenia:</label><br>
-                        <input type="datetime-local">
+                        <label for="birthdate">Data urodzenia:</label><br>
+                        <input type="date" id="birthdate" name="birthdate">
                     </div>
                 </div>
                 <div id="beer-types" class="category">
                     <div>Ulubiony typ piwa:</div>
                     <div class="radio">
-                        <input name="beer-type" id="alcohol-free" value="option-1" type="radio">
+                        <input name="beer-type" id="alcohol-free" value="alcohol-free" type="radio">
                         <label for="alcohol-free">Bezalkoholowe</label>
                     </div>
                     <div class="radio">
-                        <input name="beer-type" id="standard" value="option-2" type="radio">
+                        <input name="beer-type" id="standard" value="standard" type="radio">
                         <label for="standard">Standardowe</label>
                     </div>
                     <div class="radio">
-                        <input name="beer-type" id="flavored" value="option-3" type="radio">
+                        <input name="beer-type" id="flavored" value="flavored" type="radio">
                         <label for="flavored">Smakowe</label>
                     </div>
                     <div class="radio">
-                        <input name="beer-type" id="craft" value="option-4" type="radio">
+                        <input name="beer-type" id="craft" value="craft" type="radio">
                         <label for="craft">Kraftowe</label>
                     </div>
                 </div>
@@ -118,8 +129,8 @@
                     <div class="sub-category">
                         <label for="monthly-beer">Jak często pijesz piwo w miesiącu:</label>
                         <span>
-                            0<input type="range" id="monthly-beer" min="0" max="31" step="1" value="31"
-                                oninput="updateNumber()">
+                            0<input type="range" id="monthly-beer" name="monthly-beer" min="0" max="31" step="1"
+                                value="15">
                             <span id="cur-val">31</span>
                         </span>
                     </div>
@@ -127,20 +138,20 @@
                 <div class="category">
                     <div>Gdzie najbardziej lubisz pić piwo?</div>
                     <div class="checkbox">
-                        <input name="beer-type" id="party" value="option-1" type="checkbox">
+                        <input name="drinking-type" id="party" value="party" type="checkbox">
                         <label for="party">Na imprezie</label>
                     </div>
                     <div class="checkbox">
-                        <input name="beer-type" id="flavored" value="option-2" type="checkbox">
-                        <label for="flavored">W plenerze</label>
+                        <input name="drinking-type" id="outside" value="outside" type="checkbox">
+                        <label for="outside">W plenerze</label>
                     </div>
                     <div class="checkbox">
-                        <input name="beer-type" id="flavored" value="option-3" type="checkbox">
-                        <label for="flavored">W pubie</label>
+                        <input name="drinking-type" id="pub" value="pub" type="checkbox">
+                        <label for="pub">W pubie</label>
                     </div>
                     <div class="checkbox">
-                        <input name="beer-type" id="flavored" value="option-4" type="checkbox">
-                        <label for="flavored">Przed komputerem</label>
+                        <input name="drinking-type" id="alone" value="alone" type="checkbox">
+                        <label for="alone">Przed komputerem</label>
                     </div>
                 </div>
             </div>
@@ -157,15 +168,23 @@
                 <path d="M892.25 114.72L0 0 0 120 1200 120 1200 0 892.25 114.72z" class="shape-fill"></path>
             </svg>
         </div>
+
         <div class="footer-text">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium porro molestiae debitis ullam
-            deleniti
-            ratione vero voluptatum illo nihil cupiditate?
+            <cite>"Bez wątpienia największym wynalazkiem ludzkości jest piwo. No, koło też jest ważne, ale nie pasuje do
+                pizzy..."</cite>
         </div>
-        <div class="footer-text">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium porro molestiae debitis ullam
-            deleniti
-            ratione vero voluptatum illo nihil cupiditate?
+        <div class="footer-text no-js">
+            <a href="https://www.youtube.com/c/BrowarKopyra"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://pl.wikipedia.org/wiki/Piwo"><i class="fa-brands fa-wikipedia-w"></i></a>
+            <a href="https://www.instagram.com/explore/tags/beer"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+        <div class="footer-text no-js">
+            <div>
+                Czas od pierwszego wejścia na stronę:
+                <div id="clock">
+                    00:00:00
+                </div>
+            </div>
         </div>
     </footer>
 </body>

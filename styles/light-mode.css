@@ -1,0 +1,25 @@
+:root {
+  --main-color: #dbdbdb;
+  --menu-color-bg: rgba(229, 231, 231, 0.677);
+  --submenu-color: #e2e2e2;
+  --menu-hover-color: #585858;
+  --menu-text-color: #363434;
+
+  --text-color: #050505;
+  --beer-color: #e2ad30;
+
+  --card-shadow-color: #949494;
+
+  --jq-a-text: var(--beer-color);
+  --jq-content-text-color: #000000;
+  --jq-content-bg: #b4b4b4;
+  --jq-vidget-border: #888888;
+
+  --jq-header-bg: #494949;
+  --jq-header-border: #878787;
+
+  --jq-button-bg: #e9a600;
+  --jq-button-clickable-bg: #444444;
+  --jq-button-border: #888888;
+  --jq-button-text: #303030;
+}

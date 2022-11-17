@@ -1,11 +1,15 @@
 nav {
   height: 335px;
+  color: var(--menu-text-color);
+}
+nav a {
+  color: var(--menu-text-color);
 }
 .navbar {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: rgb(26, 24, 24, 0.8);
+  background-color: var(--menu-color-bg);
   height: 92px;
 }
 
@@ -27,6 +31,13 @@ nav {
   z-index: 2;
 }
 
+.menu > li:last-child {
+  margin-left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .menu a {
   display: flex;
   align-items: center;
@@ -36,8 +47,9 @@ nav {
   padding: 0 18px;
 }
 
-.menu a:hover {
-  color: rgb(167, 167, 167);
+.menu a:hover,
+.menu li:hover {
+  color: var(--menu-hover-color);
 }
 
 .submenu ul {
@@ -61,7 +73,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--menu-color);
+  background-color: var(--submenu-color);
 }
 
 .submenu li a {
@@ -76,7 +88,7 @@ nav::before {
   top: -10%;
   left: 0;
   z-index: -2;
-  background-image: url("/Resources/beer-foamed-bg.jpg");
+  background-image: url("../Resources/beer-foamed-bg.jpg");
   background-size: contain;
 }
 
@@ -104,4 +116,12 @@ nav::before {
   .menu a {
     height: 50px;
   }
+}
+
+#dark-mode {
+  cursor: pointer;
+}
+
+#active-nav {
+  color: var(--menu-hover-color);
 }

@@ -5,17 +5,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moje hobby</title>
+    <title>Piwo</title>
+    <link rel="shortcut icon" href="Resources/favico.png">
 
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="/styles/nav.css">
-    <link rel="stylesheet" href="/styles/galery.css">
-    <link rel="stylesheet" href="/styles/footer.css">
+    <link rel="stylesheet" href="styles/nav.css">
+    <link rel="stylesheet" href="styles/galery.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/dark-mode.css" id="theme-mode">
 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="scripts/timeCounter.js" defer></script>
+    <script src="scripts/no-js.js" defer></script>
+    <script src="scripts/footer.js" defer></script>
+    <script src="scripts/dark-mode.js" defer></script>
+
+    <script src="https://kit.fontawesome.com/0dcda202b3.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Dosis:wght@300;500;700&family=Source+Sans+Pro:wght@200;300&family=Staatliches&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Dosis:wght@300;500;700&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,400&family=Staatliches&display=swap"
         rel="stylesheet">
 </head>
 
@@ -41,10 +50,13 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="galery.html">galeria</a>
+                    <a href="galery.html" id="active-nav">galeria</a>
                 </li>
                 <li>
                     <a href="form.html">wypełnij ankiete</a>
+                </li>
+                <li class="no-js" id="dark-mode">
+                    <i class="fa-solid fa-circle-half-stroke"></i>
                 </li>
             </ul>
         </div>
@@ -87,15 +99,23 @@
                 <path d="M892.25 114.72L0 0 0 120 1200 120 1200 0 892.25 114.72z" class="shape-fill"></path>
             </svg>
         </div>
+
         <div class="footer-text">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium porro molestiae debitis ullam
-            deleniti
-            ratione vero voluptatum illo nihil cupiditate?
+            <cite>"Bez wątpienia największym wynalazkiem ludzkości jest piwo. No, koło też jest ważne, ale nie pasuje do
+                pizzy..."</cite>
         </div>
-        <div class="footer-text">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium porro molestiae debitis ullam
-            deleniti
-            ratione vero voluptatum illo nihil cupiditate?
+        <div class="footer-text no-js">
+            <a href="https://www.youtube.com/c/BrowarKopyra"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://pl.wikipedia.org/wiki/Piwo"><i class="fa-brands fa-wikipedia-w"></i></a>
+            <a href="https://www.instagram.com/explore/tags/beer"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+        <div class="footer-text no-js">
+            <div>
+                Czas od pierwszego wejścia na stronę:
+                <div id="clock">
+                    00:00:00
+                </div>
+            </div>
         </div>
     </footer>
 </body>
