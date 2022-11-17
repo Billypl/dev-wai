@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:noNamespaceSchemaLocation="HH.xsd">
+	<author>
+		<name>Michał</name>
+		<surname>Pawiłojć</surname>
+	</author>
+	<definition>
+		Strona o piwie :).
+	</definition>
+    <beers>
+        <beer>
+            <image></image>
+            <category></category>
+            <brand></brand> 
+            <name></name>
+            <prices>
+                <price></price>
+            </prices>
+            <rating></rating>
+            <description></description>
+        </beer>
+    </beers>
+    <beerTypes>
+        <beerType>
+            <name></name>
+            <description></description>
+            <link></link>
+        </beerType>
+    </beerTypes>
+    <history>
+        <section>
+            <heading></heading>
+            <description></description>
+        <section>
+    </history>
+</project>
