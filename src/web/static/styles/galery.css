@@ -10,12 +10,6 @@ section h2 {
   margin: 20px 0;
 }
 
-/* .galery-wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-} */
-
 .galery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
