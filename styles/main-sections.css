@@ -17,3 +17,47 @@
 #tabs {
   width: 50%;
 }
+
+#history {
+  margin: 20px;
+}
+#history > article {
+  max-width: 800px;
+  margin: 20px;
+}
+
+#history h4 {
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: -5px;
+}
+
+table {
+  border-color: #aaa;
+  font-family: Arial, sans-serif;
+}
+
+table td {
+  background-color: #656565;
+  color: #ffffff;
+  border: #aaa solid 1px;
+  font-size: 14px;
+  padding: 10px 5px;
+  word-break: normal;
+}
+
+table th {
+  background-color: #e47b2a;
+  border: #aaa solid 1px;
+  color: #333333;
+  font-size: 14px;
+  font-weight: normal;
+  padding: 10px 5px;
+}
+table {
+  scale: 1.5;
+}
+
+#stats {
+  margin-bottom: 300px;
+}

@@ -16,6 +16,7 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   margin: 100px 0;
 }
 
@@ -24,8 +25,19 @@ a {
   color: var(--text-color);
 }
 
+p {
+  margin: 10px 0;
+}
+
 h2 {
-  font-size: 5rem;
+  font-size: 4rem;
+  margin-bottom: 100px;
+  text-align: center;
+}
+
+h3 {
+  font-size: 2rem;
+  margin: 15px 15px 15px 0px;
 }
 
 .no-js {

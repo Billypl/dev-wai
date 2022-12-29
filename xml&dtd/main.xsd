@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	
+	<xs:element name="project">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="author" type="authorType"/> 
+				<xs:element name="definition" type="definitionType"/>
+				<xs:element name="beers" type="beersType"/> 
+				<xs:element name="beerTypes" type="beersTypesType"/>  
+				<xs:element name="history" type="historyType" /> 
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="authorType">
+		<xs:sequence>
+			<xs:element name="name" type="shortStringType" />
+			<xs:element name="surname">
+				<xs:simpleType>
+					<xs:union memberTypes="shortStringType minLengthType"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="gender">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="male|female|platypus"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="email">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="254"/>
+						<xs:pattern value="[_\-a-zA-Z0-9\.\+]+@[a-zA-Z0-9](\.?[\-a-zA-Z0-9]*[a-zA-Z0-9])*"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="phoneNumber">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="[0-9]{3}-[0-9]{3}-[0-9]{3}"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="age">
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:minExclusive value="0"/>
+						<xs:maxExclusive value="100"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="image" type="adressType"/>
+	<xs:element name="link" type="adressType"/>
+
+	<xs:simpleType name="shortStringType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="longStringType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="80" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="minLengthType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="alcVolType">
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="0" />
+			<xs:maxInclusive value="12" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="definitionType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="15"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="adressType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="source" type="xs:anyURI" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<xs:complexType name="beersType">
+		<xs:sequence>
+			<xs:element name="beer" maxOccurs="unbounded" >
+				<xs:complexType>
+					<xs:all>
+						<xs:element ref="image"/>
+						<xs:element name="brand" type="brandType"/>
+						<xs:element name="name" type="shortStringType" />
+						<xs:element name="prices" type="pricesType"/>
+						<xs:element name="description" type="xs:string" />
+					</xs:all>
+					<xs:attribute ref="btype" use="required"/>
+					<xs:attribute name="rating" type="xs:int" use="required"/>
+					<xs:attribute name="alcVol" type="alcVolType" use="required" />
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="brandType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="popular" type="xs:string" use="required" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+	<xs:complexType name="pricesType" mixed="true">
+		<xs:sequence>
+			<xs:element name="price" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute ref="shop" use="required" />
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:attribute name="shop" type="shopType" />
+	<xs:simpleType name="shopType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="społem" />
+			<xs:enumeration value="biedronka"/>
+			<xs:enumeration value="lidl" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:attribute name="btype" type="beerCategoryType"/>
+	<xs:simpleType name="beerCategoryType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="alc|alcfree|craft"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<xs:complexType name="beersTypesType">
+		<xs:sequence>
+			<xs:element name="beerType" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:group ref="beerTypeInfoGroup"/>
+					</xs:sequence>
+					<xs:attribute ref="btype" use="required" />
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:group name="beerTypeInfoGroup">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" />
+			<xs:element name="description" type="xs:string" />
+			<xs:element ref="link" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="percentageList" type="percentageListType"></xs:element>
+		</xs:sequence>
+	</xs:group>
+
+	<xs:simpleType name="percentageListType">
+		<xs:restriction>
+			<xs:simpleType>
+				<xs:list>
+					<xs:simpleType>
+						<xs:restriction base="xs:float">
+							<xs:minInclusive value="0"/>
+							<xs:maxInclusive value="12"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:list>
+			</xs:simpleType>
+			<xs:maxLength value="6"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+
+
+
+
+
+
+
+
+	<xs:complexType name="historyType">
+		<xs:sequence>
+			<xs:element name="title" type="longStringType" />
+			<xs:element name="description" type="definitionType" />
+			<xs:element name="eras" type="erasType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="erasType">
+		<xs:sequence>
+			<xs:element name="era" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="name" type="xs:string" />
+						<xs:element name="places" type="placesType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="placesType">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" name="place">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="name" type="xs:string" />
+						<xs:element name="description" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+
+
+
+
+
+</xs:schema>
