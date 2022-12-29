@@ -22,7 +22,6 @@ nav a {
 
 .menu {
   display: flex;
-  min-width: 700px;
   font-family: "Source Sans Pro", sans-serif;
   text-transform: uppercase;
   font-size: 1.1rem;
@@ -95,10 +94,10 @@ nav::before {
 @media (max-width: 1000px) {
   nav::before {
     background-size: cover;
+    height: 473px;
   }
   nav {
     height: auto;
-    width: 100%;
     margin-bottom: 100px;
   }
   .menu {
@@ -115,6 +114,9 @@ nav::before {
   }
   .menu a {
     height: 50px;
+  }
+  .menu > li:last-child {
+    margin-bottom: 10px;
   }
 }
 

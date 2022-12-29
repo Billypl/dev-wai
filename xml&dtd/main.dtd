@@ -1,0 +1,47 @@
+<!ELEMENT project (author|definition|beers|beerTypes|history)*>
+<!ATTLIST project xmlns:xsi CDATA #REQUIRED>
+
+<!ENTITY % CDreq "CDATA #REQUIRED">
+<!ENTITY % src "source CDATA #REQUIRED">
+
+
+<!ELEMENT author (name,surname,gender,email,phoneNumber,age)?>
+        <!ELEMENT name (#PCDATA)>
+        <!ELEMENT surname (#PCDATA)>
+        <!ELEMENT gender (#PCDATA)>
+        <!ELEMENT email (#PCDATA)>
+        <!ELEMENT phoneNumber (#PCDATA)>
+        <!ELEMENT age (#PCDATA)>
+        
+<!ELEMENT definition (#PCDATA)>
+
+<!ELEMENT beers (beer)*>
+<!ELEMENT beer (image|brand|name|prices|description)*>
+        <!ATTLIST beer
+                alcVol %CDreq;
+                rating %CDreq;
+                btype CDATA "alc">
+
+<!ELEMENT image (#PCDATA)>
+        <!ATTLIST image %src;>
+<!ELEMENT brand (#PCDATA)>
+        <!ATTLIST brand popular (yes|no) "no">
+<!ELEMENT prices (price)*>
+        <!ELEMENT price (#PCDATA)>
+                <!ATTLIST price shop %CDreq;>
+<!ELEMENT description (#PCDATA)>
+
+<!ELEMENT beerTypes (beerType)*>
+        <!ELEMENT beerType (name|description|link|percentageList)*>
+                <!ATTLIST beerType btype %CDreq;>
+        <!ELEMENT link (#PCDATA)>
+                <!ATTLIST link %src;>
+        <!ELEMENT percentageList (#PCDATA)>
+
+
+<!ELEMENT history (title|description|eras)*>
+        <!ELEMENT title (#PCDATA)>
+        <!ELEMENT eras (era)*>
+                <!ELEMENT era (name|places)*>
+                        <!ELEMENT places (place)*>
+                                <!ELEMENT place (name|description)*>
