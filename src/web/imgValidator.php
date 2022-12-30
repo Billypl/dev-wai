@@ -21,9 +21,9 @@ function validateParameters($file)
 }
 function checkFormat($file)
 {
-    $finfo = finfo_open(FILEINFO_MIME_TYPE);
+    $fInfo = finfo_open(FILEINFO_MIME_TYPE);
     $filename = $file['tmp_name'];
-    $mimeType = finfo_file($finfo, $filename);
+    $mimeType = finfo_file($fInfo, $filename);
 
     return intval($mimeType === 'image/jpeg' || $mimeType === 'image/png');
 }

@@ -1,2 +1,2 @@
 <?php
-    include_once "imgForm_view.php";
+    include_once "views/imgForm_view.php";

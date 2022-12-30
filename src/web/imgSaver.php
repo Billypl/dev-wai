@@ -4,30 +4,35 @@
     const imgUploadDir = uploadDir.'img/';
     const thumbUploadDir = uploadDir.'thumb/';
     const watermarkUploadDir = uploadDir.'watermark/';
+    const watermarkStampLocation = watermarkUploadDir.'stamp/watermark.png';
 
+    const redirectFinalScreenPath = "views/sentFiles_view.php";
+    const redirectIndex = "index.php";
 
+    $watermarkText = $_POST['watermarkText'];
 
     checkForIllegalDirectAccess();
     $file = $_FILES['img'];
 
     if(checkRequirements($file))
         saveFile($file);
-    header("Location: sentFiles_view.php");
+    header("Location: ".redirectFinalScreenPath);
 
     function checkForIllegalDirectAccess()
     {
         if(isset($_FILES['img']))
             return;
-        header("Location: index.php");
+        header("Location: ".redirectIndex);
         exit;
     }
-    
+
     function saveFile($file)
     {
         $filename = basename($file['name']);
         $tmpPath = $file['tmp_name'];
         saveImg($filename, $tmpPath);
-        saveThumb($filename, $tmpPath);
+        saveThumb($filename);
+        saveWatermark($filename);
     }
 
     function saveImg($filename, $tmpPath)
@@ -37,21 +42,66 @@
         setcookie("isFileSent", $success);
     }
 
-    function saveThumb($filename, $tmpPath)
+    function saveThumb($filename)
     {
         $target = thumbUploadDir.$filename;
-        $jpg_image = copyImage($filename);
-
-        $thumb = imagescale($jpg_image, 200, 125);
+        $image = copyImage($filename);
+        $thumb = imagescale($image, 200, 125);
         imagepng($thumb, $target,9);
 
+        imagedestroy($image);
+        imagedestroy($thumb);
+    }
+
+    function saveWatermark($filename)
+    {
+        $target = watermarkUploadDir.$filename;
+
+        $image = copyImage($filename);
+        $watermark = applyWatermarkFromText($filename);
+        imagepng($watermark, $target);
+
+        imagedestroy($image);
+        imagedestroy($watermark);
     }
 
     function copyImage($filename)
     {
-        $type = substr($filename,strrpos($filename,'.')+1);
+        $type = substr($filename,strrpos($filename,'.') + 1);
         if($type == "jpeg" || $type == "jpg")
             return imagecreatefromjpeg(imgUploadDir.$filename);
-        elseif ($type == "png")
+        else
             return imagecreatefrompng(imgUploadDir.$filename);
+    }
+
+    function applyWatermarkFromImage($filename)
+    {
+        $stamp = imagecreatefrompng(watermarkStampLocation);
+        $image = copyImage($filename);
+
+        // Set the margins for the stamp and get the height/width of the stamp image
+        $marge_right = 10;
+        $marge_bottom = 10;
+        $sx = imagesx($stamp);
+        $sy = imagesy($stamp);
+
+        imagecopy($image, $stamp,
+            imagesx($image) - $sx - $marge_right,
+            imagesy($image) - $sy - $marge_bottom,
+            0, 0, imagesx($stamp), imagesy($stamp));
+
+        imagedestroy($stamp);
+        return $image;
+    }
+    function applyWatermarkFromText($filename)
+    {
+        global $watermarkText;
+        $image = copyImage($filename);
+        $white =  imagecolorallocate($image, 255, 255, 255);
+
+        for($i = 0; $i < imagesx($image); $i+=strlen($watermarkText)*10+50)
+            for($j = 0; $j < imagesy($image); $j+=50)
+                imagestring($image, 5, $i, $j, $watermarkText, $white);
+
+        return $image;
     }

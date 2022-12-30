@@ -1,4 +1,6 @@
 <?php
+    const redirectIndex = "index.php";
+
     checkForIllegalDirectAccess();
     $log = generateFileUploadLogMessage();
     resetFileUploadCookies();
@@ -9,7 +11,7 @@
             !isset($_COOKIE["isGoodFormat"])    &&
             !isset($_COOKIE["isGoodSize"]))
         {
-            header("Location: index.php");
+            header("Location: ".redirectIndex);
             exit;
         }
     }
@@ -48,7 +50,7 @@
 </head>
 <body>
 <?= $log ?>
-<form action="index.php">
+<form action="../index.php">
     <input type="submit" value="Send next one!">
 </form>
 
