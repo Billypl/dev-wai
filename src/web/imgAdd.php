@@ -40,14 +40,24 @@
 
      function createImage($file, $name)
      {
-         // title must be set as real image title
-         $title = basename($file['name']);
-         $author = "unknown";
-         if(isset($_POST['title']) && !empty($_POST['title']))
-             $title =  $_POST['title'];
-         if(isset($_POST['author']) && !empty($_POST['author']))
-             $author = $_POST['author'];
+         $title = getTitle($file);
+         $author = getAuthor();
 
          return new Image($title, $author, $name);
      }
 
+    function getTitle($file)
+    {
+        if(isset($_POST['title']) && !empty($_POST['title']))
+            return  $_POST['title'];
+        else
+            return pathinfo(basename($file['name']))["filename"];
+    }
+
+    function getAuthor()
+    {
+        if(isset($_POST['author']) && !empty($_POST['author']))
+            return $_POST['author'];
+        else
+            return "unknown";
+    }

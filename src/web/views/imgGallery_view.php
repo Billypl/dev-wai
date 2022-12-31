@@ -11,43 +11,29 @@
         $page = $_GET["page"];
 
     echo '<a href="../index.php">Back to main menu</a> <br>';
-    $imagesHtml = generateImages();
-    renderImages($imagesHtml, $page);
-    generateNextPrevButtons($page, count($imagesHtml)/paggingElementsCount);
-    renderDB();
-    function renderDB()
+    $imagesHtml = generateGallery();
+    renderGallery($imagesHtml, $page);
+    renderNextPrevButtons($page, count($imagesHtml)/paggingElementsCount);
+
+    function generateGallery()
     {
+        $imagesHtml = [];
         $images = Image::getAll();
-        $i = 0;
         foreach ($images as $image)
         {
-            $i++;
-            echo "<br>Image $i:<br>";
-            echo $image->title;
-            echo "<br>";
-            echo $image->author;
-        }
-    }
-
-    function generateImages()
-    {
-        $images = glob(thumbUploadDir."*.*");
-        $imagesHtml = [];
-        foreach($images as $image)
-        {
-            $filename = pathinfo($image)['basename'];
-            $imagesHtml[] = '<img src="'.htmlUploadDir.$filename.'" /><br />';
+            $imgHtml = '<img src="'.htmlUploadDir.$image->name.'" /><br />';
+            $imgHtml.= $image->title." | ".$image->author."<br>";
+            $imagesHtml[] = $imgHtml;
         }
         return $imagesHtml;
     }
-
-    function renderImages($imagesHtml, $page)
+    function renderGallery($imagesHtml, $page)
     {
         for($i = $page*paggingElementsCount; $i < paggingElementsCount*($page+1) && $i < count($imagesHtml); $i++)
             echo $imagesHtml[$i];
     }
 
-    function generateNextPrevButtons($page, $amountOfPages)
+    function renderNextPrevButtons($page, $amountOfPages)
     {
         if($page > 0)
             echo '<a href="imgGallery_view.php?page='.($page-1).'">Previous</a>';
