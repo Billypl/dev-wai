@@ -34,7 +34,7 @@
     function generateNextPrevButtons($page, $amountOfPages)
     {
         if($page > 0)
-            echo '<a href="imgGallery_view.php?pae='.($page-1).'">Previous</a>';
+            echo '<a href="imgGallery_view.php?page='.($page-1).'">Previous</a>';
         if($page < $amountOfPages - 1)
             echo '<a href="imgGallery_view.php?page='.($page+1).'">Next</a>';
     }

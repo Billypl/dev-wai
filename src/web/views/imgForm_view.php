@@ -5,7 +5,11 @@
 </head>
 <body>
 
-    <form action="../imgSaver.php" method="post" enctype="multipart/form-data">
+    <form action="../imgAdd.php" method="post" enctype="multipart/form-data">
+        <input type="text" name="title" placeholder="title" value="unknown">
+        <br>
+        <input type="text" name="author" placeholder="author" value="unknown">
+        <br>
         <input type="text" name="watermarkText" placeholder="watermark text" required>
         <br>
         <input type="file" name="img" required>
