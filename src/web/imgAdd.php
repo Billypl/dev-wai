@@ -10,6 +10,9 @@
     const redirectIndex = "index.php";
 
     $watermarkText = $_POST['watermarkText'];
+    $title = $_POST['title'];
+    $author = $_POST['author'];
+
 
     checkForIllegalDirectAccess();
     $file = $_FILES['img'];
