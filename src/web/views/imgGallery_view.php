@@ -1,4 +1,6 @@
 <?php
+    require_once "../Image.php";
+
     const uploadDir = '../upload/';
     const htmlUploadDir = '/upload/thumb/';
     const thumbUploadDir = uploadDir.'thumb/';
@@ -12,6 +14,20 @@
     $imagesHtml = generateImages();
     renderImages($imagesHtml, $page);
     generateNextPrevButtons($page, count($imagesHtml)/paggingElementsCount);
+    renderDB();
+    function renderDB()
+    {
+        $images = Image::getAll();
+        $i = 0;
+        foreach ($images as $image)
+        {
+            $i++;
+            echo "<br>Image $i:<br>";
+            echo $image->title;
+            echo "<br>";
+            echo $image->author;
+        }
+    }
 
     function generateImages()
     {

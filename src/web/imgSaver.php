@@ -4,13 +4,12 @@
     const thumbUploadDir = uploadDir.'thumb/';
     const watermarkUploadDir = uploadDir.'watermark/';
     const watermarkStampLocation = watermarkUploadDir.'stamp/watermark.png';
-    function saveFile($file)
+    function saveFile($file, $name)
     {
-        $filename = basename($file['name']);
         $tmpPath = $file['tmp_name'];
-        saveImg($filename, $tmpPath);
-        saveThumb($filename);
-        saveWatermark($filename);
+        saveImg($name, $tmpPath);
+        saveThumb($name);
+        saveWatermark($name);
     }
 
     function saveImg($filename, $tmpPath)

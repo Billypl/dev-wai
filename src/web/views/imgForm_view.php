@@ -6,9 +6,9 @@
 <body>
 
     <form action="../imgAdd.php" method="post" enctype="multipart/form-data">
-        <input type="text" name="title" placeholder="title" value="unknown">
+        <input type="text" name="title" placeholder="title">
         <br>
-        <input type="text" name="author" placeholder="author" value="unknown">
+        <input type="text" name="author" placeholder="author">
         <br>
         <input type="text" name="watermarkText" placeholder="watermark text" required>
         <br>

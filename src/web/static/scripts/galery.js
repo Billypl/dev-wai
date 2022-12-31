@@ -15,16 +15,20 @@ function magnify() {
     zoom.style.display = "flex";
     let src = this.children[0].src;
     const thumbDir = "/upload/img/";
-    zoom.children[0].src = thumbDir + getImgName(src);
+    zoom.children[0].src = thumbDir + getImgNameWithExtension(src);
     console.log();
 }
 
 
 
-function getImgName(imgSrc) {
+function getImgNameWithExtension(imgSrc) {
     let src = decodeURI(imgSrc)
-    let name = src.split("/").pop(); //.split(".")[0];
+    let name = src.split("/").pop();
     return name;
+}
+
+function getImageName(imgSrc) {
+    return getImgNameWithExtension(imgSrc).split(".")[0];
 }
 
 function fillImgInfo() {
@@ -39,7 +43,7 @@ function createImgInfo(imgSrc) {
     info.classList.add("img-info");
 
     let title = document.createElement("span");
-    title.innerText = "Title: " + getImgName(imgSrc);
+    title.innerText = "Title: " + getImageName(imgSrc);
     info.appendChild(title);
 
     let author = document.createElement("span");
