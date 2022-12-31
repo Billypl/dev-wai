@@ -12,6 +12,7 @@
         <input type="submit">
     </form>
 
+    <a href="views/imgGallery_view.php">Gallery</a>
 </body>
 </html>
 

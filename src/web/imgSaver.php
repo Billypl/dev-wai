@@ -1,6 +1,6 @@
 <?php
     include_once "imgValidator.php";
-    const uploadDir = '/var/www/dev/src/web/upload/';
+    const uploadDir = 'upload/';
     const imgUploadDir = uploadDir.'img/';
     const thumbUploadDir = uploadDir.'thumb/';
     const watermarkUploadDir = uploadDir.'watermark/';
