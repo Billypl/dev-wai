@@ -13,17 +13,7 @@
 
     function findInstallPath()
     {
-        // Idea: https://unixsheikh.com/tutorials/php-include-path-problems.html
-        $installPathQuery = ["installPath" => ['$regex' => ".*"]];
-        $installPath = DB::get()->paths->findOne($installPathQuery);
-
-        if(empty($installPath))
-        {
-            $installPath = pathinfo(realpath(basename(getenv("SCRIPT_NAME"))))["dirname"];
-            DB::get()->paths->insertOne(["installPath" => $installPath]);
-        }
-
-        return $installPath["installPath"];
+        return  pathinfo(realpath(basename(getenv("SCRIPT_NAME"))))["dirname"];;
     }
 
     function getAbsPath($relativePath)

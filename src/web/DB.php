@@ -1,8 +1,5 @@
 <?php
-    // double include to ensure it works in prod and dev
-    // "@" to silent warning
-    @include '/var/www/dev/src/vendor/autoload.php';
-    @include '/var/www/prod/src/vendor/autoload.php';
+    include '/var/www/dev/src/vendor/autoload.php';
     class DB
     {
         private static $db = null;
