@@ -11,6 +11,7 @@
     if(isset($_GET["page"]))
         $page = $_GET["page"];
 
+
     echo '<a href="../index.php">Back to main menu</a> <br>';
     $imagesHtml = generateGallery();
     renderGallery($imagesHtml, $page);

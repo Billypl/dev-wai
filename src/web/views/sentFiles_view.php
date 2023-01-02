@@ -37,9 +37,9 @@
     }
     function resetFileUploadCookies()
     {
-        setcookie("isGoodFormat", false);
-        setcookie("isGoodSize", false);
-        setcookie("isFileSent", false);
+        setcookie("isGoodFormat", "", time() - 3600, '/');
+        setcookie("isGoodSize", "", time() - 3600, '/');
+        setcookie("isFileSent", "",time() - 3600, '/');
     }
 ?>
 

@@ -5,7 +5,7 @@ function checkRequirements($file)
 }
 function checkForErrors($file)
 {
-    if($file["error"] != UPLOAD_ERR_OK)
+    if($file["error"] != UPLOAD_ERR_OK && $file["error"] != UPLOAD_ERR_INI_SIZE)
     {
         setcookie("isGoodSize", 0);
         setcookie("isGoodFormat", 1);
@@ -15,8 +15,8 @@ function checkForErrors($file)
 }
 function validateParameters($file)
 {
-    setcookie("isGoodSize", checkSize($file));
-    setcookie("isGoodFormat", checkFormat($file));
+    setcookie("isGoodSize", checkSize($file), time()+300, '/');
+    setcookie("isGoodFormat", checkFormat($file), time()+300, '/');
     return checkFormat($file) && checkSize($file);
 }
 function checkFormat($file)
