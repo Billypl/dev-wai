@@ -7,8 +7,8 @@ function checkForErrors($file)
 {
     if($file["error"] != UPLOAD_ERR_OK && $file["error"] != UPLOAD_ERR_INI_SIZE)
     {
-        setcookie("isGoodSize", 0);
-        setcookie("isGoodFormat", 1);
+        setcookie("isGoodSize", 0, time()+300, '/');
+        setcookie("isGoodFormat", 1, time()+300, '/');
         return false;
     }
     return true;

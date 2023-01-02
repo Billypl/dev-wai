@@ -7,15 +7,15 @@
     const thumbUploadDir = uploadDir.'thumb/';
     const paggingElementsCount = 2;
 
-    $page = 0;
+    $pageNr = 0;
     if(isset($_GET["page"]))
-        $page = $_GET["page"];
+        $pageNr = $_GET["page"];
 
 
     echo '<a href="../index.php">Back to main menu</a> <br>';
     $imagesHtml = generateGallery();
-    renderGallery($imagesHtml, $page);
-    renderNextPrevButtons($page, count($imagesHtml)/paggingElementsCount);
+    renderGallery($imagesHtml, $pageNr);
+    renderNextPrevButtons($pageNr, count($imagesHtml)/paggingElementsCount);
 
     function generateGallery()
     {
@@ -29,17 +29,17 @@
         }
         return $imagesHtml;
     }
-    function renderGallery($imagesHtml, $page)
+    function renderGallery($imagesHtml, $pageNr)
     {
-        for($i = $page*paggingElementsCount; $i < paggingElementsCount*($page+1) && $i < count($imagesHtml); $i++)
+        for($i = $pageNr*paggingElementsCount; $i < paggingElementsCount*($pageNr+1) && $i < count($imagesHtml); $i++)
             echo $imagesHtml[$i];
     }
 
-    function renderNextPrevButtons($page, $amountOfPages)
+    function renderNextPrevButtons($pageNr, $amountOfPages)
     {
-        if($page > 0)
-            echo '<a href="imgGallery_view.php?page='.($page-1).'">Previous</a>';
-        if($page < $amountOfPages - 1)
-            echo '<a href="imgGallery_view.php?page='.($page+1).'">Next</a>';
+        if($pageNr > 0)
+            echo '<a href="imgGallery_view.php?page='.($pageNr-1).'">Previous</a>';
+        if($pageNr < $amountOfPages - 1)
+            echo '<a href="imgGallery_view.php?page='.($pageNr+1).'">Next</a>';
     }
 ?>

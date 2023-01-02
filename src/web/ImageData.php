@@ -12,7 +12,7 @@
             $this->name = $name;
         }
         public function save() {
-            $response = DB::get()->images->insertOne([
+            DB::get()->images->insertOne([
                 'title' => $this->title,
                 'author' => $this->author,
                 'name' => $this->name
@@ -28,6 +28,6 @@
             return $images;
         }
         public static function deleteAll() {
-            $response = DB::get()->images->deleteMany([]);
+            DB::get()->images->deleteMany([]);
         }
     }
