@@ -14,18 +14,18 @@
         public function save() {
             $response = DB::get()->images->insertOne([
                 'title' => $this->title,
-                'contents' => $this->author,
+                'contents' => $this->author, //TODO: change for author
                 'name' => $this->name
             ]);
         }
 
         public static function getAll() {
             $response = DB::get()->images->find([]);
-            $posts = [];
+            $images = [];
             foreach ($response as $image)
-                $posts[] = new Image($image['title'], $image['contents'], $image['name']);
+                $images[] = new Image($image['title'], $image['contents'], $image['name']);
 
-            return $posts;
+            return $images;
         }
         public static function deleteAll() {
             $response = DB::get()->images->deleteMany([]);

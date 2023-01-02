@@ -1,5 +1,7 @@
 <?php
-    const uploadDir = 'upload/';
+    require_once $_COOKIE["installPath"] . "/helperFunc.php";
+
+    define("uploadDir", getAbsPath("upload/"));
     const imgUploadDir = uploadDir.'img/';
     const thumbUploadDir = uploadDir.'thumb/';
     const watermarkUploadDir = uploadDir.'watermark/';
@@ -24,7 +26,7 @@
         $target = thumbUploadDir.$filename;
         $image = copyImage($filename);
         $thumb = imagescale($image, 200, 125);
-        imagepng($thumb, $target,9);
+        imagepng($thumb, $target);
 
         imagedestroy($image);
         imagedestroy($thumb);
