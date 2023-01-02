@@ -1,6 +1,6 @@
 <?php
     require_once $_COOKIE["installPath"] . "/helperFunc.php";
-    require_once getAbsPath("ImageData.php");
+    require_once getAbsPath("/imgHandler/ImageData.php");
 
     define("uploadDir", getAbsPath("../upload/"));
     const htmlUploadDir = '/upload/thumb/';

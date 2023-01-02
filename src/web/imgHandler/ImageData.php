@@ -1,5 +1,5 @@
 <?php
-    require_once 'DB.php';
+    require_once '../DB.php';
     class ImageData
     {
         public $title;

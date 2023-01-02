@@ -1,13 +1,13 @@
 <?php
 
     require_once $_COOKIE["installPath"] . "/helperFunc.php";
-    require_once getAbsPath("ImageData.php");
-    require_once getAbsPath("imgValidator.php");
-    require_once getAbsPath("imgFileSaver.php");
-    require_once getAbsPath("imgDataSaver.php");
+    require_once getAbsPath("imgHandler/ImageData.php");
+    require_once getAbsPath("imgHandler/imgValidator.php");
+    require_once getAbsPath("imgHandler/imgFileSaver.php");
+    require_once getAbsPath("imgHandler/imgDataSaver.php");
 
-    const redirectFinalScreenPath = "views/sentFiles_view.php";
-    const redirectIndex = "index.php";
+    const redirectFinalScreenPath = "../views/sentFiles_view.php";
+    const redirectIndex = "../index.php";
 
     $watermarkText = $_POST['watermarkText'];
 

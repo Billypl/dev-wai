@@ -13,7 +13,8 @@
 
     function findInstallPath()
     {
-        return  pathinfo(realpath(basename(getenv("SCRIPT_NAME"))))["dirname"];;
+        // Idea: https://unixsheikh.com/tutorials/php-include-path-problems.html
+        return  pathinfo(realpath(basename(getenv("SCRIPT_NAME"))))["dirname"];
     }
 
     function getAbsPath($relativePath)
