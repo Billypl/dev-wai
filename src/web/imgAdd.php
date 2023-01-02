@@ -1,13 +1,15 @@
 <?php
-    include_once "imgValidator.php";
-    require_once "imgSaver.php";
-    require_once "Image.php";
+
+    require_once $_COOKIE["installPath"] . "/helperFunc.php";
+    require_once getAbsPath("ImageData.php");
+    require_once getAbsPath("imgValidator.php");
+    require_once getAbsPath("imgFileSaver.php");
+    require_once getAbsPath("imgDataSaver.php");
 
     const redirectFinalScreenPath = "views/sentFiles_view.php";
     const redirectIndex = "index.php";
 
     $watermarkText = $_POST['watermarkText'];
-
 
     checkForIllegalDirectAccess();
     $file = $_FILES['img'];
@@ -20,7 +22,6 @@
 
         saveDataToDb($file, $name);
         saveFile($file, $name);
-
     }
     header("Location: ".redirectFinalScreenPath);
 
@@ -30,34 +31,4 @@
             return;
         header("Location: ".redirectIndex);
         exit;
-    }
-
-     function saveDataToDb($file, $name)
-     {
-         $img = createImage($file, $name);
-         $img->save();
-     }
-
-     function createImage($file, $name)
-     {
-         $title = getTitle($file);
-         $author = getAuthor();
-
-         return new Image($title, $author, $name);
-     }
-
-    function getTitle($file)
-    {
-        if(isset($_POST['title']) && !empty($_POST['title']))
-            return  $_POST['title'];
-        else
-            return pathinfo(basename($file['name']))["filename"];
-    }
-
-    function getAuthor()
-    {
-        if(isset($_POST['author']) && !empty($_POST['author']))
-            return $_POST['author'];
-        else
-            return "unknown";
     }

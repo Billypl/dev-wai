@@ -1,6 +1,6 @@
 <?php
     require_once 'DB.php';
-    class Image
+    class ImageData
     {
         public $title;
         public $author;
@@ -14,7 +14,7 @@
         public function save() {
             $response = DB::get()->images->insertOne([
                 'title' => $this->title,
-                'contents' => $this->author, //TODO: change for author
+                'author' => $this->author,
                 'name' => $this->name
             ]);
         }
@@ -23,7 +23,7 @@
             $response = DB::get()->images->find([]);
             $images = [];
             foreach ($response as $image)
-                $images[] = new Image($image['title'], $image['contents'], $image['name']);
+                $images[] = new ImageData($image['title'], $image['author'], $image['name']);
 
             return $images;
         }

@@ -1,7 +1,8 @@
 <?php
-    require_once "../Image.php";
+    require_once $_COOKIE["installPath"] . "/helperFunc.php";
+    require_once getAbsPath("ImageData.php");
 
-    const uploadDir = '../upload/';
+    define("uploadDir", getAbsPath("../upload/"));
     const htmlUploadDir = '/upload/thumb/';
     const thumbUploadDir = uploadDir.'thumb/';
     const paggingElementsCount = 2;
@@ -18,7 +19,7 @@
     function generateGallery()
     {
         $imagesHtml = [];
-        $images = Image::getAll();
+        $images = ImageData::getAll();
         foreach ($images as $image)
         {
             $imgHtml = '<img src="'.htmlUploadDir.$image->name.'" /><br />';

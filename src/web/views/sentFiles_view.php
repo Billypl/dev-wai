@@ -2,7 +2,7 @@
     const redirectIndex = "index.php";
 
     checkForIllegalDirectAccess();
-    $log = generateFileUploadLogMessage();
+    $errorsLog = generateFileUploadLogMessage();
     resetFileUploadCookies();
 
     function checkForIllegalDirectAccess()
@@ -18,22 +18,22 @@
 
     function generateFileUploadLogMessage()
     {
-        $log = "";
+        $errorsLog = "";
         if(isset($_COOKIE["isFileSent"]))
         {
             if($_COOKIE["isFileSent"])
-                $log = "File successfully uploaded";
+                $errorsLog = "File successfully uploaded";
             else
-                $log = "Server failed to save the file";
+                $errorsLog = "Server failed to save the file";
         }
         else
         {
             if(!$_COOKIE["isGoodFormat"])
-                $log = $log."Wrong file format (accepted formats are: png/jpeg)!";
+                $errorsLog = $errorsLog."Wrong file format (accepted formats are: png/jpeg)!";
             elseif(!$_COOKIE["isGoodSize"])
-                $log = $log."File exceeds 1MB!";
+                $errorsLog = $errorsLog."File exceeds 1MB!";
         }
-        return $log;
+        return $errorsLog;
     }
     function resetFileUploadCookies()
     {
@@ -49,10 +49,8 @@
     <title>Files uploaded</title>
 </head>
 <body>
-<?= $log ?>
-<form action="../index.php">
-    <input type="submit" value="Send next one!">
-</form>
-
+    <?= $errorsLog ?>
+    <br>
+    <a href="../index.php">Send next one!</a>
 </body>
 </html>
