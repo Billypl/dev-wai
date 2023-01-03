@@ -11,7 +11,7 @@
             $this->author = $author;
             $this->name = $name;
         }
-        public function save() {
+        public function saveToDb() {
             DB::get()->images->insertOne([
                 'title' => $this->title,
                 'author' => $this->author,

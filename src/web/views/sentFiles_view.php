@@ -30,7 +30,7 @@
         {
             if(!$_COOKIE["isGoodFormat"])
                 $errorsLog = $errorsLog."Wrong file format (accepted formats are: png/jpeg)!";
-            elseif(!$_COOKIE["isGoodSize"])
+            if(!$_COOKIE["isGoodSize"])
                 $errorsLog = $errorsLog."File exceeds 1MB!";
         }
         return $errorsLog;

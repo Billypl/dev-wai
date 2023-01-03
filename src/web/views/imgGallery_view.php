@@ -23,7 +23,9 @@
         $images = ImageData::getAll();
         foreach ($images as $image)
         {
-            $imgHtml = '<img src="'.htmlUploadDir.$image->name.'" /><br />';
+            $imgHtml = '<a href="/upload/watermark/'.$image->name.'">';
+            $imgHtml.= '<img src="'.htmlUploadDir.$image->name.'" /><br />';
+            $imgHtml.= '</a>';
             $imgHtml.= $image->title." | ".$image->author."<br>";
             $imagesHtml[] = $imgHtml;
         }

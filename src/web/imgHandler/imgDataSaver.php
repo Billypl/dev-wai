@@ -3,7 +3,7 @@
     function saveDataToDb($file, $name)
     {
         $img = createImage($file, $name);
-        $img->save();
+        $img->saveToDb();
     }
 
     function createImage($file, $name)

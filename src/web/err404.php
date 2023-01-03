@@ -8,6 +8,6 @@
     <p>To lazy to implement this page</p>
     <img src="static/Resources/laziness.jpg">
     <br>
-    <a href="index.php">Main page</a>
+    <a href="/index.php">Main page</a>
 </body>
 </html>
