@@ -2,16 +2,16 @@
     session_start();
     require_once '../DB.php';
 
-    if(!isset($_POST["login"]) || !isset($_POST["password"]))
+    if(checkForIllegalAccess())
         returnToLogInPage();
 
-    if(!empty(getLoggedAccount()))
+    if(isDataValid())
     {
         $user = getLoggedAccount();
         $_SESSION["login"] = $user["login"];
         $_SESSION["id"] = $user["id"];
         $_SESSION["isCredentialsCorrect"] = 1;
-        header("Location: ../index.php");
+        header("Location: ../views/userLogInSuccess_view.php");
         exit;
     }
     else
@@ -20,19 +20,28 @@
         returnToLogInPage();
     }
 
-    function getLoggedAccount()
-    {
-        $query = [
-            '$and' => [
-                ['login' => $_POST["login"]],
-                ['password' => $_POST["password"]]
-            ]
-        ];
 
-        return DB::get()->users->findOne($query);
+    function checkForIllegalAccess()
+    {
+        return !isset($_POST["login"]) || !isset($_POST["password"]);
     }
     function returnToLogInPage()
     {
         header("Location: ../views/userLogIn_view.php");
         exit;
     }
+    function isDataValid()
+    {
+        return !empty(getLoggedAccount());
+    }
+    function getLoggedAccount()
+    {
+        $query = ['login' => $_POST["login"]];
+        $acc = DB::get()->users->findOne($query);
+        if(password_verify($_POST["password"], $acc['password']))
+            return $acc;
+        return "";
+    }
+
+
+

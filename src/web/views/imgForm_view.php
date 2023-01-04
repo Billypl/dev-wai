@@ -1,6 +1,7 @@
 <?php
     session_start();
     $suffix = isset($_SESSION["id"]) ? "Out" : "In";
+    $singUpVisibility = isset($_SESSION["id"]) ? "" : ' || <a href="views/userSignUp_view.php">Sign Up</a>';
 ?>
 
 <!DOCTYPE html>
@@ -9,8 +10,8 @@
     <title>File uploader</title>
 </head>
 <body>
-    <a href="views/userLogIn_view.php">Log <?= $suffix ?></a> ||
-    <a href="views/userSignUp_view.php">Sign Up</a>
+    <a href="views/userLogIn_view.php">Log <?= $suffix ?></a>
+    <?= $singUpVisibility ?>
     <form action="../imgHandler/imgAdd.php" method="post" enctype="multipart/form-data">
         <input type="text" name="title" placeholder="title">
         <br>

@@ -11,11 +11,13 @@
     if(isset($_GET["page"]))
         $pageNr = $_GET["page"];
 
-
     echo '<a href="../index.php">Back to main menu</a> <br>';
     $imagesHtml = generateGallery();
     renderGallery($imagesHtml, $pageNr);
     renderNextPrevButtons($pageNr, count($imagesHtml)/paggingElementsCount);
+
+
+
 
     function generateGallery()
     {

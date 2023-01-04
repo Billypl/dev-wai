@@ -8,7 +8,8 @@
     checkForExistingAccount();
     if($_SESSION["isPasswordMatching"] && !$_SESSION["isExistingAccount"])
     {
-        $user = new User($_POST["login"], $_POST["email"], $_POST["password"], false);
+        $hashedPass =  password_hash($_POST["password"], PASSWORD_DEFAULT);
+        $user = new User($_POST["login"], $_POST["email"], $hashedPass, false);
         $user->saveToDb();
     }
     returnToLoginForm();

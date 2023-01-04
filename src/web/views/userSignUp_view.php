@@ -11,7 +11,6 @@
         if(isset($_SESSION["isExistingAccount"]) && isset($_SESSION["isPasswordMatching"]) &&
             !$_SESSION["isExistingAccount"] && $_SESSION["isPasswordMatching"])
             $errorsLog = "Successfully created account";
-            //TODO: go to login page
         return $errorsLog;
     }
 
@@ -39,7 +38,8 @@
         </p>
     </form>
 
-    <a href="userLogIn_view.php">Log In</a>
+    <a href="userLogIn_view.php">Log In</a> ||
+    <a href="../index.php">Main page</a>
 </body>
 </html>
 

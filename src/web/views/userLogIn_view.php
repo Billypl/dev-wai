@@ -1,6 +1,5 @@
 <?php
     session_start();
-    //TODO: check for illegal access
     if(isset($_SESSION["id"]))
     {
         session_destroy();
@@ -18,6 +17,7 @@
         return $log;
     }
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,7 +36,8 @@
         </p>
     </form>
 
-    <a href="userSignUp_view.php">Sign Up</a>
+    <a href="userSignUp_view.php">Sign Up</a> ||
+    <a href="../index.php">Main page</a>
 </body>
 </html>
 
